@@ -40,13 +40,12 @@
         android:id="@+id/tempTview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="44dp"
-        android:text="Temp"
-        android:textColor="@color/white"
         android:textSize="20dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        android:text="Temp"
+        android:textColor="@color/purple_500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/getWeatherBtn" />
 
@@ -54,11 +53,11 @@
         android:id="@+id/feelsLikeTview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="36dp"
         android:text="Feels like"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_500"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tempTview" />
 
@@ -67,10 +66,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="temp Min"
-        android:textColor="@color/white"
+        android:text="Temp Min"
+        android:textColor="@color/purple_500"
         android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/tempMaxTview"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feelsLikeTview" />
 
@@ -79,9 +79,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="40dp"
         android:text="Temp Max"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_500"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/feelsLikeTview" />
@@ -90,12 +90,11 @@
         android:id="@+id/pressureTview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="28dp"
         android:text="Pressure"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_500"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tempMaxTview" />
 
@@ -103,11 +102,11 @@
         android:id="@+id/tumidityTview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="28dp"
         android:text="Humidity"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_500"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pressureTview" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tempMinTview;
     private TextView tempMaxTview;
     private TextView pressureTview;
-    private TextView tumidityTview;
+    private TextView humidityTview;
 
     public void GetWeather(View view){
         try{
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         tempMinTview = findViewById(R.id.tempMinTview);
         tempMaxTview = findViewById(R.id.tempMaxTview);
         pressureTview = findViewById(R.id.pressureTview);
-        tumidityTview = findViewById(R.id.tumidityTview);
+        humidityTview = findViewById(R.id.tumidityTview);
     }
 
     public class DownloadTask extends AsyncTask<String,Void,String> {
@@ -90,21 +90,21 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
             try{
                 JSONObject jsonObject = new JSONObject(s);
-                String weatherInfo = jsonObject.getString("weather");
-                Log.i("weatherInfo " , weatherInfo);
-                JSONArray arr = new JSONArray(weatherInfo);
-                String message = "";
-                for (int i = 0; i < arr.length(); i++){
-                    JSONObject jsonPart = arr.getJSONObject(i);
-                   String main = jsonPart.getString("main");
-                   String description = jsonPart.getString("description");
-                    Log.i("main " , main);
-                   if(!main.equals("") && !description.equals("")){
-                       message += main + ": " + description + "\r\n";
-                    }
-               }
-                if(!message.equals("")){
-                    feelsLikeTview.setText(message);
+                JSONObject jsonMain = jsonObject.getJSONObject("main");
+                double temp = jsonMain.getDouble("temp") - 273.15;
+                double feelsLike = jsonMain.getDouble("feels_like") - 273.15;
+                float pressure = jsonMain.getInt("pressure");
+                int humidity = jsonMain.getInt("humidity");
+                double tempMin = jsonMain.getDouble("temp_min")- 273.15;
+                double tempMax = jsonMain.getDouble("temp_max")- 273.15;
+
+                if(!jsonMain.equals("")){
+                    tempTview.setText("Temp: " + temp + "°C" );
+                    feelsLikeTview.setText("Feel like:"+ feelsLike + "°C");
+                    tempMinTview.setText("Temp Min: " + tempMin + "°C");
+                    tempMaxTview.setText("Temp Max: " + tempMax + "°C");
+                    pressureTview.setText("Pressure: " + pressure + "Hpa");
+                    humidityTview.setText("Tumidity: " + humidity + "%");
 
                 }else{
                     Toast.makeText(getApplicationContext(), "Could not find weather :(", Toast.LENGTH_SHORT).show();
