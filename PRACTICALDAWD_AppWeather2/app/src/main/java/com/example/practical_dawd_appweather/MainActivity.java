@@ -94,15 +94,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("weatherInfo " , weatherInfo);
                 JSONArray arr = new JSONArray(weatherInfo);
                 String message = "";
-//                for (int i = 0; i < arr.length(); i++){
-//                    JSONObject jsonPart = arr.getJSONObject(i);
-//                    String main = jsonPart.getString("main");
-//                    String description = jsonPart.getString("description");
-//                    Log.i("main " , main);
-//                    if(!main.equals("") && !description.equals("")){
-//                        message += main + ": " + description + "\r\n";
-//                    }
-//                }
+                for (int i = 0; i < arr.length(); i++){
+                    JSONObject jsonPart = arr.getJSONObject(i);
+                   String main = jsonPart.getString("main");
+                   String description = jsonPart.getString("description");
+                    Log.i("main " , main);
+                   if(!main.equals("") && !description.equals("")){
+                       message += main + ": " + description + "\r\n";
+                    }
+               }
                 if(!message.equals("")){
                     feelsLikeTview.setText(message);
 
